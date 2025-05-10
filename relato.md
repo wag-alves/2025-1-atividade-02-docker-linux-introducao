@@ -9,12 +9,12 @@
 ## Introdução
 
 Neste exercício, o objetivo foi compreender e aplicar, na prática, os conceitos abordados em aula, por meio da manipulação de permissões, gerenciamento de diretórios e pacotes, encerramento de processos e navegação no sistema de arquivos Linux.
-
----
+  
+  
 
 ## Relato
 
-### Para verificar se o Docker estava instalado corretamente na máquina, utilizei o comando:
+### Conferindo o Docker.
 
 ![Imagem 1](./imagens/verificando-docker-1.png)
 
@@ -25,7 +25,7 @@ Conferi se o Docker estava instalado na minha máquina com o comando:
 
 ---
 
-### Em seguida, baixei a imagem do Fedora, executei o container em modo interativo e defini um nome personalizado:
+### Baixando imagem do Fedora, executando o container em modo interativo e definindo um nome personalizado.
 
 ![Imagem 2](./imagens/baixando-imagem-fedora-e-renomeando-2.png)
 
@@ -37,7 +37,7 @@ Conferi se o Docker estava instalado na minha máquina com o comando:
 
 ---
 
-### Executei alguns comando do Shell:
+### Executando alguns comando do Shell.
 
 ![Imagem 3](./imagens/onde-estou-e-quem-sou-indo-para-home-e-criando-diretorio-3.png)  
 
@@ -52,26 +52,117 @@ Utilizei comandos do terminal para identificar o diretório atual, verificar o u
   
 ---
 
-### Naveguei entre os diretórios:
+### Navegando entre os diretórios.
   
 
-![imagem 4](./imagens/voltando-diretorio-conferindo-arquivos-e-voltando-home-conferindo-criando-arquivo1-4.png)
+![Imagem 4](./imagens/voltando-diretorio-conferindo-arquivos-e-voltando-home-conferindo-criando-arquivo1-4.png)
   
   
 Naveguei entre os diretórios e criei um arquivo texto no diretório Home.
   
   
 `touch [nome_arquivo]` -> Cria um arquivo vazio.
+  
+  
+
+---
+
+### Renomeando arquivos, criando diretórios e movendo arquivos.
+
+![Imagem 5](./imagens/conferindo-arquivos-e-renomeando-atividade1-e-movendo-documento-para-dentro-backup-5.png)
+  
+  
+Utilizei o comando `mv` para renomear um arquivo, já que não informei um diretório como destino.
+
+>No Linux, quando usamos mv apenas alterando o nome do arquivo e mantendo-o no mesmo local, o comando funciona como um renomeador.
+
+Em seguida, naveguei até o diretório atividades, localizado no meu diretório home, criei um subdiretório chamado backup, e copiei o arquivo renomeado para dentro desse novo diretório.
+Nesse processo, utilizei tanto o caminho absoluto quanto o caminho relativo.
+
+`mv arquivo_original.txt novo_nome.txt` -> Renomeia o arquivo.  
+`cd ~/atividades` -> Entra no diretório 'atividades'.  
+`mkdir backup` -> Cria o subdiretório 'backup'.  
+`cp ~/documento.txt backup/` -> Utilizei um caminho absoluto como origem (~/documento.txt) e um caminho relativo como destino (backup/) para copiar o arquivo renomeado.  
+  
+  
+---
+
+  
+  
+### Navegando e removendo arquivos.
+
+![Imagem 6](./imagens/home-conferindo-e-removendo-documento-e-conferindo-documento-backup-6.png)  
+  
+  
+Voltei para o diretório home, conferi o diretório de trabalho atual, listei os arquivos e removi o arquivo `documento.txt` do home.
+Em seguida, acessei a pasta `backup` (que havia sido criada anteriormente) para verificar se a cópia do `documento.txt` ainda estava lá, já que havia feito uma duplicação do arquivo para esse local anteriormente.  
+  
+`cd ~` -> Volta para o diretório home.  
+`pwd` -> Mostra o diretório atual.  
+`ls` -> Lista os arquivos.  
+`rm documento.txt` -> Remove o arquivo original.  
+`cd ./atividades/backup` -> Entra na pasta de backup.  
+`ls` -> Verifica se a cópia do arquivo está lá.  
+  
+---
+  
+  
+
+### Atualizando pacotes.
+
+![Imagem 7](./imagens/atualizando-pacotes-7.png)
+![Imagem 8](./imagens/atualizando-pacotes-2-8.png)
+![Imagem 9](./imagens/fim-atualizacao-9.png)
+
+Atualizei os pacotes do sistema utilizando o comando `dnf update`, acompanhado do parâmetro `-y`, que serve para confirmar automaticamente todas as solicitações do processo, evitando a necessidade de digitar "yes" manualmente durante a execução.  
+  
+`dnf update` -> Atualiza os pacotes do sistema.  
+  
+  
+---
+  
+  
+### Instalando e removendo o Nano.
+
+![Imagem 10](./imagens/instalando-e-removendo-nano-10.png)  
+  
+Intalei o nano com o `dnf install nano -y` e removi em seguida com o `dnf remove nano -y`  
+  
+`dnf install` -> Instala pacotes.  
+`dnf remove` -> Remove pacotes.  
+  
+  
+
+---
+  
+  
+
+###
+
+![Imagem 11](./imagens/criando-script-mudando-para-executar-e-baixando-ps-11.png)
 
 
 
+---
+  
+  
+
+###
+
+![Imagem ]()
 
 
 
+---
+  
+  
+
+###
+
+![Imagem ]()
 
 
-
-
+---
 
 
 
