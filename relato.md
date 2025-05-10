@@ -37,7 +37,7 @@ Conferi se o Docker estava instalado na minha máquina com o comando:
 
 ---
 
-### Executando alguns comando do Shell.
+### Executando alguns comandos no terminal Bash.
 
 ![Imagem 3](./imagens/onde-estou-e-quem-sou-indo-para-home-e-criando-diretorio-3.png)  
 
@@ -126,7 +126,7 @@ Atualizei os pacotes do sistema utilizando o comando `dnf update`, acompanhado d
 
 ![Imagem 10](./imagens/instalando-e-removendo-nano-10.png)  
   
-Intalei o nano com o `dnf install nano -y` e removi em seguida com o `dnf remove nano -y`  
+Instalei o nano com o `dnf install nano -y` e removi em seguida com o `dnf remove nano -y`  
   
 `dnf install` -> Instala pacotes.  
 `dnf remove` -> Remove pacotes.  
@@ -137,9 +137,14 @@ Intalei o nano com o `dnf install nano -y` e removi em seguida com o `dnf remove
   
   
 
-###
+### Instalando ps e mudando permissões de arquivos.
 
-![Imagem 11](./imagens/criando-script-mudando-para-executar-e-baixando-ps-11.png)
+![Imagem 11](./imagens/criando-script-mudando-para-executar-e-baixando-ps-11.png)  
+  
+Criei o arquivo `script.sh` no diretório Home e alterei suas permissões para torná-lo executável pelo usuário proprietário e instalei o utilitário `ps`, que permite listar os processos em execução no sistema.  
+  
+`chmod u+x [nome_do_arquivo]` -> Dá permissão de execução ao dono.  
+`dnf install [pacote]` -> Instala um pacote no sistema.  
 
 
 
@@ -147,54 +152,148 @@ Intalei o nano com o `dnf install nano -y` e removi em seguida com o `dnf remove
   
   
 
-###
+### Utilizando ps, matando processos e removendo a imagem do fedora.
 
-![Imagem ]()
-
-
-
----
+![Imagem 12](./imagens/conferindo-ps-e-matando-processo-er-removendo-docker-fedora-12.png)  
+  
+Verifiquei se o `ps` estava instalado corretamente consultando sua versão. Em seguida, utilizei o comando `ps aux` para listar todos os processos em execução no sistema. Para testar a execução em background, executei `sleep 60 &`, que inicia um processo que aguarda 60 segundos sem bloquear o terminal.  
+Combinei o `ps aux` com o operador pipe `|` e o comando `grep sleep` para filtrar e visualizar apenas o processo relacionado ao `sleep`. Após localizá-lo, finalizei esse processo utilizando o comando `kill`.  
+Depois disso, saí do terminal com o comando `exit`, listei todos os containers Docker com `docker ps -a`, e por fim, removi um container específico com `docker rm [nome_do_container]`.  
   
   
-
-###
-
-![Imagem ]()
-
-
----
-
-
-
-
+`ps --version` -> Verifica se o utilitário `ps` está instalado, exibindo sua versão atual.  
+`ps aux` -> Lista todos os processos em execução no sistema com detalhes completos.  
+`sleep 60 &` -> Inicia um processo que aguarda 60 segundos em segundo plano.  
+`|` -> Encaminha a saída de um comando como entrada para outro.  
+`grep sleep` -> Filtra a saída para exibir apenas as linhas que contêm "sleep".  
+`kill [PID]` -> Finaliza o processo identificado pelo PID (Process ID).  
+`exit` -> Encerra a sessão atual do terminal.  
+`docker ps -a` -> Lista todos os containers Docker (ativos e inativos).  
+`docker rm [nome_do_container]` -> Remove um container Docker pelo nome ou ID.  
 
 
 
+---  
 
-
-
-
-
-
-
-
-### Imagens:
-
-![Descrição da imagem 1](caminho/para/imagem1.png)  
-*Figura 1 - Resultado da etapa X*
-
-![Descrição da imagem 2](caminho/para/imagem2.png)  
-*Figura 2 - Resultado da etapa Y*
-
----
 
 ## Conclusão
 
-Com esta atividade, aprendi:
+Com esta atividade, aprendi a manipular diversos aspectos do ambiente Linux, como criar arquivos, instalar e remover pacotes, navegar entre diretórios, utilizar caminhos relativos e absolutos, encerrar processos e aplicar comandos para inspeção de processos do sistema. Também exercitei a escrita de documentação no formato Markdown, o que contribui para uma apresentação mais clara e organizada das ações realizadas.
 
-- [Ponto aprendido 1]
-- [Ponto aprendido 2]
+**Dificuldades encontradas:**  
+  
+- A atividade em si é simples, especialmente com o apoio do professor e os tutoriais fornecidos, mas requer atenção aos detalhes e pode ser um pouco trabalhosa.
+- Descobri que o editor `nano` não vem instalado por padrão na distribuição Fedora, ao contrário de algumas outras distros.
+- Criar um documento `Markdown` minimamente agradável visualmente pode ser mais desafiador do que parece, exigindo atenção à formatação e clareza.  
+  
+### Comandos utilizados:  
+  
+<!-- `pwd` -> Mostra o diretório de trabalho atual.  
+`whoami` -> Exibe o nome do usuário atualmente logado.  
+`cd ~` -> Navega para o diretório home do usuário.  
+`ls -la` -> Lista todos os arquivos e diretórios, incluindo os ocultos, com detalhes como permissões, data, e tamanho.  
+`mkdir [nome_do_diretório]` -> Cria um novo diretório.  
+`touch [nome_arquivo]` -> Cria um arquivo vazio.  
+`mv arquivo_original.txt novo_nome.txt` -> Renomeia o arquivo.  
+`cd ~/atividades` -> Entra no diretório 'atividades'.  
+`mkdir backup` -> Cria o subdiretório 'backup'.  
+`cp ~/documento.txt backup/` -> Utilizei um caminho absoluto como origem (~/documento.txt) e um caminho relativo como destino (backup/) para copiar o arquivo renomeado.  
+`cd ~` -> Volta para o diretório home.  
+`pwd` -> Mostra o diretório atual.  
+`ls` -> Lista os arquivos.  
+`rm documento.txt` -> Remove o arquivo original.  
+`cd ./atividades/backup` -> Entra na pasta de backup.  
+`ls` -> Verifica se a cópia do arquivo está lá.  
+`dnf update` -> Atualiza os pacotes do sistema.  
+`dnf install` -> Instala pacotes.  
+`dnf remove` -> Remove pacotes.  
+`chmod u+x [nome_do_arquivo]` -> Dá permissão de execução ao dono.  
+`dnf install [pacote]` -> Instala um pacote no sistema.  
+`ps --version` -> Verifica se o utilitário `ps` está instalado, exibindo sua versão atual.  
+`ps aux` -> Lista todos os processos em execução no sistema com detalhes completos.  
+`sleep 60 &` -> Inicia um processo que aguarda 60 segundos em segundo plano.  
+`|` -> Encaminha a saída de um comando como entrada para outro.  
+`grep sleep` -> Filtra a saída para exibir apenas as linhas que contêm "sleep".  
+`kill [PID]` -> Finaliza o processo identificado pelo PID (Process ID).  
+`exit` -> Encerra a sessão atual do terminal.  
+`docker ps -a` -> Lista todos os containers Docker (ativos e inativos).  
+`docker rm [nome_do_container]` -> Remove um container Docker pelo nome ou ID.   -->
 
-**Dificuldades encontradas:**
 
-- [Descreva as dificuldades ou desafios enfrentados]
+### 🧭 Navegação e gerenciamento de diretórios
+
+| Comando                          | Descrição                                                                 |
+|----------------------------------|---------------------------------------------------------------------------|
+| `pwd`                            | Mostra o diretório de trabalho atual.                                     |
+| `cd ~`                           | Vai para o diretório home do usuário.                                     |
+| `cd ~/atividades`               | Entra no diretório `atividades` dentro da home.                          |
+| `cd ./atividades/backup`        | Entra na subpasta `backup`, a partir do diretório atual.                  |
+| `ls`                             | Lista os arquivos e diretórios visíveis.                                  |
+| `ls -la`                         | Lista todos os arquivos (inclusive ocultos) com detalhes.                 |
+| `mkdir [nome_do_diretório]`     | Cria um novo diretório.                                                   |
+
+---
+
+### 📄 Gerenciamento de arquivos
+
+| Comando                                            | Descrição                                                               |
+|----------------------------------------------------|-------------------------------------------------------------------------|
+| `touch [nome_arquivo]`                             | Cria um arquivo vazio.                                                  |
+| `mv arquivo_original.txt novo_nome.txt`            | Renomeia ou move um arquivo.                                            |
+| `cp ~/documento.txt backup/`                       | Copia um arquivo da home para o diretório `backup/`.                    |
+| `rm documento.txt`                                 | Remove o arquivo `documento.txt`.                                       |
+
+---
+
+### 👤 Usuário e sessão
+
+| Comando     | Descrição                                 |
+|-------------|-------------------------------------------|
+| `whoami`    | Exibe o nome do usuário atualmente logado.|
+| `exit`      | Encerra a sessão atual do terminal.       |
+
+---
+
+### 🔐 Permissões
+
+| Comando                              | Descrição                                              |
+|--------------------------------------|--------------------------------------------------------|
+| `chmod u+x [nome_do_arquivo]`        | Dá permissão de execução ao dono do arquivo.          |
+
+---
+
+### 📦 Gerenciamento de pacotes (DNF)
+
+| Comando                        | Descrição                           |
+|--------------------------------|-------------------------------------|
+| `dnf update`                   | Atualiza os pacotes do sistema.     |
+| `dnf install [pacote]`         | Instala um pacote no sistema.       |
+| `dnf remove [pacote]`          | Remove um pacote do sistema.        |
+
+---
+
+### 🧠 Processos
+
+| Comando              | Descrição                                                                 |
+|----------------------|---------------------------------------------------------------------------|
+| `ps --version`       | Verifica se o `ps` está instalado e exibe sua versão.                     |
+| `ps aux`             | Lista todos os processos ativos com detalhes.                             |
+| `sleep 60 &`         | Executa um processo em segundo plano que espera 60 segundos.              |
+| `grep sleep`         | Filtra a saída para mostrar apenas linhas contendo “sleep”.               |
+| `kill [PID]`         | Finaliza o processo pelo seu PID (Process ID).                            |
+| `|`                  | Encaminha a saída de um comando como entrada para outro (pipe).           |
+
+---
+
+### 🐳 Docker
+
+| Comando                          | Descrição                                               |
+|----------------------------------|---------------------------------------------------------|
+| `docker ps -a`                   | Lista todos os containers Docker (ativos e inativos).   |
+| `docker rm [nome_do_container]` | Remove um container Docker pelo nome ou ID.             |
+  
+  
+<br>
+🧠 Participação Especial  
+
+Parte do conteúdo, organização e revisão deste material contou com o apoio da ferramenta ChatGPT, utilizada para fins educacionais e de aprimoramento técnico.
